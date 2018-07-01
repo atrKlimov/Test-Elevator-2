@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30E1FB920D857BA00649491 /* ElevatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E1FB820D857BA00649491 /* ElevatorManager.swift */; };
+		A31B84A920E2B8BC005C1B35 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B84A820E2B8BC005C1B35 /* House.swift */; };
+		A31B84AB20E8E78F005C1B35 /* Cabin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B84AA20E8E78F005C1B35 /* Cabin.swift */; };
+		A31B84AD20E8E9CD005C1B35 /* Protocol - Calls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B84AC20E8E9CD005C1B35 /* Protocol - Calls.swift */; };
 		A379D9D320D82CE4001445E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A379D9D220D82CE4001445E0 /* AppDelegate.swift */; };
 		A379D9D520D82CE4001445E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A379D9D420D82CE4001445E0 /* ViewController.swift */; };
 		A379D9D820D82CE4001445E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A379D9D620D82CE4001445E0 /* Main.storyboard */; };
 		A379D9DA20D82CE4001445E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A379D9D920D82CE4001445E0 /* Assets.xcassets */; };
 		A379D9DD20D82CE4001445E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A379D9DB20D82CE4001445E0 /* LaunchScreen.storyboard */; };
+		A379D9E620D82D94001445E0 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A379D9E520D82D94001445E0 /* Passenger.swift */; };
+		A379D9E820D82DAD001445E0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A379D9E720D82DAD001445E0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A30E1FB820D857BA00649491 /* ElevatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorManager.swift; sourceTree = "<group>"; };
+		A31B84A820E2B8BC005C1B35 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		A31B84AA20E8E78F005C1B35 /* Cabin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabin.swift; sourceTree = "<group>"; };
+		A31B84AC20E8E9CD005C1B35 /* Protocol - Calls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol - Calls.swift"; sourceTree = "<group>"; };
 		A379D9CF20D82CE4001445E0 /* Test Elevator 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Elevator 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A379D9D220D82CE4001445E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A379D9D420D82CE4001445E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +32,8 @@
 		A379D9D920D82CE4001445E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A379D9DC20D82CE4001445E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A379D9DE20D82CE4001445E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A379D9E520D82D94001445E0 /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
+		A379D9E720D82DAD001445E0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,28 @@
 		A379D9D120D82CE4001445E0 /* Test Elevator 2 */ = {
 			isa = PBXGroup;
 			children = (
-				A379D9D220D82CE4001445E0 /* AppDelegate.swift */,
+				A379D9E420D82D05001445E0 /* Support */,
 				A379D9D420D82CE4001445E0 /* ViewController.swift */,
+				A379D9E720D82DAD001445E0 /* Constants.swift */,
+				A379D9E520D82D94001445E0 /* Passenger.swift */,
+				A31B84A820E2B8BC005C1B35 /* House.swift */,
+				A30E1FB820D857BA00649491 /* ElevatorManager.swift */,
+				A31B84AA20E8E78F005C1B35 /* Cabin.swift */,
 				A379D9D620D82CE4001445E0 /* Main.storyboard */,
-				A379D9D920D82CE4001445E0 /* Assets.xcassets */,
-				A379D9DB20D82CE4001445E0 /* LaunchScreen.storyboard */,
+				A31B84AC20E8E9CD005C1B35 /* Protocol - Calls.swift */,
 				A379D9DE20D82CE4001445E0 /* Info.plist */,
 			);
 			path = "Test Elevator 2";
+			sourceTree = "<group>";
+		};
+		A379D9E420D82D05001445E0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A379D9D220D82CE4001445E0 /* AppDelegate.swift */,
+				A379D9D920D82CE4001445E0 /* Assets.xcassets */,
+				A379D9DB20D82CE4001445E0 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +164,12 @@
 			files = (
 				A379D9D520D82CE4001445E0 /* ViewController.swift in Sources */,
 				A379D9D320D82CE4001445E0 /* AppDelegate.swift in Sources */,
+				A379D9E620D82D94001445E0 /* Passenger.swift in Sources */,
+				A379D9E820D82DAD001445E0 /* Constants.swift in Sources */,
+				A31B84A920E2B8BC005C1B35 /* House.swift in Sources */,
+				A31B84AD20E8E9CD005C1B35 /* Protocol - Calls.swift in Sources */,
+				A30E1FB920D857BA00649491 /* ElevatorManager.swift in Sources */,
+				A31B84AB20E8E78F005C1B35 /* Cabin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2B3H5V7DAM;
 				INFOPLIST_FILE = "Test Elevator 2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artem.klimov.Test-Elevator-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2B3H5V7DAM;
 				INFOPLIST_FILE = "Test Elevator 2/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.artem.klimov.Test-Elevator-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
