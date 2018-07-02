@@ -8,14 +8,19 @@
 
 import Foundation
 
-class Elevator: Calls {
+// Accumulate information with calls from Cabin and House
+// Define next floor for Cabin
+class ElevatorManager: Calls {
     
+    //
     var currentFloor = 1
     
     var cabin = Cabin()
+    
     var house = House()
     
     var direction: Direction = .up {
+        // if lift is empty it try to find future direction from calls from floor
         didSet {
             if direction == .none {
                 direction = checkDirection()
@@ -31,18 +36,9 @@ class Elevator: Calls {
         return cabin.calls + house.calls
     }
     
-    func run () {
-        print("Current Floor \(currentFloor)")
-
-        cabin.takeOffPassengers(on: currentFloor, to: &house.passengers, with: direction)
-        if passengersInCabinCount == 0 {
-            direction = .none
-        }
-        cabin.takePassengers(from: currentFloor, in: &house.passengers, with: direction)
-        currentFloor = nextStop()
-    }
-    
+    // Calculete calls from floor and return bigger count
     func checkDirection () -> Direction {
+        print("try find direction")
         let callsFromFloor = house.calls.filter({$0.floor == currentFloor})
         if callsFromFloor.filter({$0.direction == .up}).count > callsFromFloor.filter({$0.direction == .down}).count {
             return .up
@@ -51,14 +47,17 @@ class Elevator: Calls {
         }
     }
     
+    // Return next stop
+    // defolt parameter will work in case then no passengers on first floor after House Initialization
+    // direction.index helps find minimum floor in house
     func nextStop() -> Int {
         switch passengersInCabinCount {
         case cabin.maxPassengers:
-            let callsInSameDirection = cabin.calls.filter({$0.floor * direction.index > currentFloor * direction.index && $0.direction == direction})
+            let callsInSameDirection = cabin.calls.filter({($0.floor * direction.index) > (currentFloor * direction.index) && $0.direction == direction})
             let nextFloor = callsInSameDirection.map({$0.floor * direction.index}).min()
             return nextFloor! * direction.index
         case 1..<cabin.maxPassengers:
-            let callsInSameDirection = calls.filter({$0.floor * direction.index > currentFloor * direction.index && $0.direction == direction})
+            let callsInSameDirection = calls.filter({($0.floor * direction.index) > (currentFloor * direction.index) && $0.direction == direction})
             let nextFloor = callsInSameDirection.map({$0.floor * direction.index}).min()
             return nextFloor! * direction.index
         default:
@@ -69,16 +68,31 @@ class Elevator: Calls {
             return nextFloor
         }
     }
+    
+    func run () {
+        print("Current Floor \(currentFloor)")
+        
+        cabin.takeOffPassengers(on: currentFloor, to: &house.passengers, with: direction)
+        
+        if passengersInCabinCount == 0 {
+            direction = .none
+        }
+        
+        cabin.takePassengers(from: currentFloor, in: &house.passengers, with: direction)
+        
+        currentFloor = nextStop()
+        
+        print(self)
+    }
 }
 
-extension Elevator: CustomStringConvertible {
+extension ElevatorManager: CustomStringConvertible {
     var description: String { return
         """
-        current floor \(currentFloor)
-        next floor \(nextStop())
-        
+        next floor \(currentFloor)
+        direction \(direction)
+        Passenger in Cabin \(cabin.passengers)
+        Passenger in House \(house.passengers)
         """
     }
-    
-    
 }

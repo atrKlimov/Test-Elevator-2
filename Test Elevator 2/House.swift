@@ -13,11 +13,13 @@ class House {
     var passengers: [Passenger]
     var floors: Int
     
+    
     init() {
         passengers = House.getPassengers()
         floors = House.houseFloors
     }
     
+    // Static factory vars and method with task settings
     static let startFloor = 1
     static let maxFloor = 20
     static let minFloor = 5
@@ -38,6 +40,7 @@ class House {
     }
 }
 
+// Return calls from floor, that house send to ElevatorManager
 extension House: Calls {
     var calls: [(floor: Int, direction: Direction)] {
         var innerCalls = [(floor: Int, direction: Direction)]()

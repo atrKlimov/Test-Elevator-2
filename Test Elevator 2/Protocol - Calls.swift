@@ -9,5 +9,7 @@
 import Foundation
 
 protocol Calls: class {
+    
+    // Calls it's a array of tuples, with information from what floor with what direction was call
     var calls: [(floor: Int, direction: Direction)] {get}
 }

@@ -10,14 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var elevator = Elevator()
+    var elevator = ElevatorManager()
     
     @IBAction func run(_ sender: UIButton) {
         elevator.run()
-    }
-    
-    override func viewDidLoad() {
-        
     }
 }
 
