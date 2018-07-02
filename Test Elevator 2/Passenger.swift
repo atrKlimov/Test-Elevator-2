@@ -22,5 +22,5 @@ struct Passenger {
 }
 
 extension Passenger: CustomStringConvertible {
-    var description: String { return "\n Leaving floor: \(currentFloor) / Destination Floor: \(destinationFloor) " }
+    var description: String { return "\n Leaving floor: \(currentFloor) / Destination floor: \(destinationFloor) " }
 }
