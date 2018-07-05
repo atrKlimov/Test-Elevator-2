@@ -8,31 +8,13 @@
 
 import Foundation
 
-// Define directions for ElevatorManager
-enum Direction {
-    
-    case up, down, none
-    
-    //return associate property for direction then ElevatorManager find next stop
-    var index: Int {
-        switch self {
-        case .down: return -1
-        case .up , .none: return 1
-        }
-    }
+//Takes all start settings for application
+struct Constants {
+    static let firstFloor = 1
+    static let maxFloor = 20
+    static let minFloor = 5
+    static let passengersOnFloor = 0...10
+    static var maxPassengersInCabin = 5
+    static let cabinStartFloor = 1
 }
-
-extension Int {
-    
-    // return random Int from range to self
-    var random: Int { return Int(arc4random_uniform(UInt32(self + 1)))}
-    
-    // return random Int from range to floor: Int with self excluding
-    func excludeCurrent(from floor: Int) -> Int {
-        let range = 1...floor
-        let randomValue = numericCast(arc4random_uniform(numericCast(range.count - 1))) + range.lowerBound
-        return randomValue >= self ? randomValue + 1 : randomValue
-    }
-}
-
 

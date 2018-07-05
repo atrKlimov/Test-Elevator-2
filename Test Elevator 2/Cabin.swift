@@ -12,7 +12,7 @@ import Foundation
 class Cabin {
     
     // Set maximum passengers in Cabin
-    var maxPassengers = 5
+    var maxPassengers = Constants.maxPassengersInCabin
     
     var passengers = [Passenger]()
     
@@ -22,6 +22,7 @@ class Cabin {
             if passenger.destinationFloor == floor {
                 passengers.remove(at: index)
                 house.append(Passenger(currentFloor: floor, destinationFloor: floor.excludeCurrent(from: House.houseFloors)))
+                        print(House.houseFloors)
             }
         }
     }
@@ -35,6 +36,7 @@ class Cabin {
         }
     }
 }
+
 // Return calls from Cabin for ElevatorManager
 extension Cabin: Calls {
     

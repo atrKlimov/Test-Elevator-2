@@ -13,24 +13,18 @@ class House {
     var passengers: [Passenger]
     var floors: Int
     
-    
     init() {
         passengers = House.getPassengers()
         floors = House.houseFloors
     }
     
-    // Static factory vars and method with task settings
-    static let startFloor = 1
-    static let maxFloor = 20
-    static let minFloor = 5
-    static let passengersOnFloor = 0...10
-    
-    static var houseFloors : Int = { return (maxFloor - minFloor).random + minFloor }()
+    // Static factory vars and method
+    static let houseFloors : Int = { return (Constants.maxFloor - Constants.minFloor).random + Constants.minFloor }()
     
     static func getPassengers () -> [Passenger] {
         var passengers = [Passenger]()
-        for floor in startFloor...houseFloors {
-            for passenger in passengersOnFloor.lowerBound..<passengersOnFloor.count.random {
+        for floor in Constants.firstFloor...houseFloors {
+            for passenger in Constants.passengersOnFloor.lowerBound..<Constants.passengersOnFloor.count.random {
                 if passenger != 0 {
                     passengers.append(Passenger(currentFloor: floor, destinationFloor: floor.excludeCurrent(from: houseFloors)))
                 }
@@ -42,11 +36,25 @@ class House {
 
 // Return calls from floor, that house send to ElevatorManager
 extension House: Calls {
+    
     var calls: [(floor: Int, direction: Direction)] {
         var innerCalls = [(floor: Int, direction: Direction)]()
         for passenger in passengers.indices {
             innerCalls.append((floor: passengers[passenger].currentFloor, direction: passengers[passenger].direction))
         }
         return innerCalls
+    }
+}
+
+
+extension Int {
+    // return random Int from range to self
+    var random: Int { return Int(arc4random_uniform(UInt32(self + 1)))}
+    
+    // return random Int from 1 to floor: Int with self excluding
+    func excludeCurrent(from floor: Int) -> Int {
+        let range = 1...floor
+        let randomValue = numericCast(arc4random_uniform(numericCast(range.count - 1))) + range.lowerBound
+        return randomValue >= self ? randomValue + 1 : randomValue
     }
 }

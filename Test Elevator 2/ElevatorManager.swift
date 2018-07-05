@@ -11,14 +11,10 @@ import Foundation
 // Accumulate information with calls from Cabin and House
 // Define next floor for Cabin
 class ElevatorManager: Calls {
-    
-    //
-    var currentFloor = 1
-    
+
+    var currentFloor = Constants.cabinStartFloor
     var cabin = Cabin()
-    
     var house = House()
-    
     var direction: Direction = .up {
         // if lift is empty it try to find future direction from calls from floor
         didSet {
@@ -36,9 +32,9 @@ class ElevatorManager: Calls {
         return cabin.calls + house.calls
     }
     
-    // Calculete calls from floor and return bigger count
+    // Calculete calls from floor and return bigger count direction
     func checkDirection () -> Direction {
-        print("try find direction")
+        print("Try find direction")
         let callsFromFloor = house.calls.filter({$0.floor == currentFloor})
         if callsFromFloor.filter({$0.direction == .up}).count > callsFromFloor.filter({$0.direction == .down}).count {
             return .up
@@ -48,7 +44,7 @@ class ElevatorManager: Calls {
     }
     
     // Return next stop
-    // defolt parameter will work in case then no passengers on first floor after House Initialization
+    // default parameter will work in case then no passengers on first floor after House Initialization
     // direction.index helps find minimum floor in house
     func nextStop() -> Int {
         switch passengersInCabinCount {
@@ -71,15 +67,11 @@ class ElevatorManager: Calls {
     
     func run () {
         print("Current Floor \(currentFloor)")
-        
         cabin.takeOffPassengers(on: currentFloor, to: &house.passengers, with: direction)
-        
         if passengersInCabinCount == 0 {
             direction = .none
         }
-        
         cabin.takePassengers(from: currentFloor, in: &house.passengers, with: direction)
-        
         currentFloor = nextStop()
         
         print(self)
@@ -89,10 +81,10 @@ class ElevatorManager: Calls {
 extension ElevatorManager: CustomStringConvertible {
     var description: String { return
         """
-        next floor \(currentFloor)
-        direction \(direction)
-        Passenger in Cabin \(cabin.passengers)
-        Passenger in House \(house.passengers)
+        Next floor: \(currentFloor)
+        Direction: \(direction)
+        Passenger in Cabin: \(cabin.passengers)
+        Passenger in House: \(house.passengers)
         """
     }
 }

@@ -13,14 +13,12 @@ import Foundation
 struct Passenger {
     
     var currentFloor: Int
-    
     var destinationFloor: Int
-    
     var direction: Direction {
         return destinationFloor > currentFloor ? .up : .down
     }
 }
 
 extension Passenger: CustomStringConvertible {
-    var description: String { return "\n Leaving floor: \(currentFloor) / Destination floor: \(destinationFloor) " }
+    var description: String { return "\n Leaving floor: \(currentFloor), Destination floor: \(destinationFloor) " }
 }
